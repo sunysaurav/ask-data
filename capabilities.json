@@ -1,0 +1,113 @@
+{
+    "dataRoles": [
+        {
+            "displayName": "Data Fields",
+            "name": "dataFields",
+            "kind": "GroupingOrMeasure",
+            "description": "Drag dimension or measure fields to provide context for AI conversations"
+        }
+    ],
+    "objects": {
+        "aiConfig": {
+            "properties": {
+                "provider": {
+                    "type": {
+                        "enumeration": [
+                            { "value": "openai", "displayName": "OpenAI" },
+                            { "value": "gemini", "displayName": "Google Gemini" },
+                            { "value": "claude", "displayName": "Anthropic Claude" },
+                            { "value": "openrouter", "displayName": "OpenRouter (Free Models)" }
+                        ]
+                    }
+                },
+                "apiKey": {
+                    "type": { "text": true }
+                },
+                "modelName": {
+                    "type": { "text": true }
+                },
+                "apiEndpoint": {
+                    "type": { "text": true }
+                }
+            }
+        },
+        "chatBehavior": {
+            "properties": {
+                "systemPrompt": {
+                    "type": { "text": true }
+                },
+                "temperature": {
+                    "type": { "numeric": true }
+                },
+                "maxTokens": {
+                    "type": { "numeric": true }
+                },
+                "includeDataContext": {
+                    "type": { "bool": true }
+                },
+                "streamResponse": {
+                    "type": { "bool": true }
+                }
+            }
+        },
+        "appearance": {
+            "properties": {
+                "theme": {
+                    "type": {
+                        "enumeration": [
+                            { "value": "light", "displayName": "Light" },
+                            { "value": "dark", "displayName": "Dark" },
+                            { "value": "auto", "displayName": "Auto" }
+                        ]
+                    }
+                },
+                "fontSize": {
+                    "type": {
+                        "formatting": {
+                            "fontSize": true
+                        }
+                    }
+                },
+                "accentColor": {
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "showTimestamps": {
+                    "type": { "bool": true }
+                },
+                "showTokenCount": {
+                    "type": { "bool": true }
+                }
+            }
+        }
+    },
+    "dataViewMappings": [
+        {
+            "table": {
+                "rows": {
+                    "for": { "in": "dataFields" },
+                    "dataReductionAlgorithm": {
+                        "top": { "count": 10000 }
+                    }
+                }
+            }
+        }
+    ],
+    "privileges": [
+        {
+            "name": "WebAccess",
+            "essential": true,
+            "parameters": [
+                "https://api.openai.com",
+                "https://api.anthropic.com",
+                "https://generativelanguage.googleapis.com",
+                "https://openrouter.ai"
+            ]
+        }
+    ]
+}

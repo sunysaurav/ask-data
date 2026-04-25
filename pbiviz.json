@@ -1,0 +1,26 @@
+{
+    "visual": {
+        "name": "askData",
+        "displayName": "AskData AI Chat",
+        "guid": "askDataC85C52A8C39C47A7B28A332200CFE973",
+        "visualClassName": "Visual",
+        "version": "1.0.0.1",
+        "description": "AI-powered data chat assistant for Power BI. Chat with OpenAI, Google Gemini, or Anthropic Claude about your data.",
+        "supportUrl": "https://github.com/sunysaurav/ask-data",
+        "gitHubUrl": "https://github.com/sunysaurav/ask-data"
+    },
+    "apiVersion": "5.3.0",
+    "author": {
+        "name": "AskData",
+        "email": "support@askdata.ai"
+    },
+    "assets": {
+        "icon": "assets/icon.png"
+    },
+    "externalJS": null,
+    "style": "style/visual.less",
+    "capabilities": "capabilities.json",
+    "dependencies": null,
+    "stringResources": [],
+    "version": "1.0.0.0"
+}
